@@ -16,7 +16,7 @@ def write_presentation(spreadsheet):
 
         slide.placeholders[0].text = row[1]
         slide.placeholders[1].text = "Duration " + row[2] + "\nDependencies: " + row[3] + "\nStatus: " + row[4] + "\nResources: " + row[5]
-    presentation.save('plan_presentation.pptx')
+    presentation.save('output/plan_presentation.pptx')
 
 
 def write_plan(plan):
@@ -32,22 +32,22 @@ def write_plan(plan):
     ws = wb.active
     for row in spreadsheet:
         ws.append(row)
-    wb.save('project_plan.xlsx')
+    wb.save('output/project_plan.xlsx')
     return spreadsheet
 
 def write_document(document, doctype, write_html=True):
     # Save Charter
     if( doctype == 1):
-        my_file = open('project_charter.md', 'w')
+        my_file = open('output/project_charter.md', 'w')
         my_file.write(document)
         my_file.close()
-        doc_file = Markdown2docx('project_charter')
+        doc_file = Markdown2docx('output/project_charter')
     # Save Risk Management Plan
     elif(doctype == 2):
-        my_file = open('risk_management.md', 'w')
+        my_file = open('output/risk_management.md', 'w')
         my_file.write(document)
         my_file.close()
-        doc_file = Markdown2docx('risk_management')
+        doc_file = Markdown2docx('output/risk_management')
 
     doc_file.eat_soup()
     if(write_html == True):

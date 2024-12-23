@@ -1,6 +1,6 @@
 import os
-from gemini_calls import *
-from io_functions import *
+from utils.gemini_calls import *
+from utils.io_functions import *
 
 api_key=os.environ["GOOGLE_API_KEY"]
 charter_prompt = "Write a brief Project Charter document for our product idea. The Project Charter should include the following sections: \n    1) Project Title and Description\n    2) Project Purpose or Justification\n    3) Objectives and Constraints\n    4) Scope Description\n    5) Project Deliverables\n    6) Project Budget\n    7) Stakeholder Identification\n    8) High-Level Risks and Assumptions\n\n    Our product idea is: "

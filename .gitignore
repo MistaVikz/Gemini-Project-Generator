@@ -5,15 +5,8 @@
 # Ignore build output directory
 __pycache__/
 
-
-# Ignore files with a specific extension
-*.xlsx
-*.html
-*.docx
-*.md
-
 # Ignore files in a specific directory
-#logs/*.log
-
-# Do not ignore a specific file
-#!debug.log
+output/*.xlsx
+output/*.html
+output/*.docx
+output/*.md
