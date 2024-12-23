@@ -29,8 +29,8 @@ def main():
     # Generate project plan.
     project_plan = call_gemini(api_key,project_charter, plan_prompt)
     print(project_plan)
-    write_plan(project_plan)
-    write_presentation(project_plan)
+    spreadsheet = write_plan(project_plan)
+    write_presentation(spreadsheet)
 
 if __name__=='__main__':
     main()

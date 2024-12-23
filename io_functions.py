@@ -2,17 +2,18 @@ from Markdown2docx import Markdown2docx
 from openpyxl import Workbook
 from pptx import Presentation
 
-def write_presentation(plan):
+def write_presentation(spreadsheet):
     presentation = Presentation()
     slide_layout = presentation.slide_layouts[1]    # title and content layout
     
-    plan = plan[2:]
+    spreadheet = spreadsheet[2:]
 
     # Build Slides
-    for row in plan:
+    for row in spreadheet:
         if(len(row) < 5):
             continue
         slide=presentation.slides.add_slide(slide_layout)
+
         slide.placeholders[0].text = row[1]
         slide.placeholders[1].text = "Duration " + row[2] + "\nDependencies: " + row[3] + "\nStatus: " + row[4] + "\nResources: " + row[5]
     presentation.save('plan_presentation.pptx')
@@ -25,14 +26,14 @@ def write_plan(plan):
     for row in rows:
         split_row = row.split('|')
         spreadsheet.append(split_row)
-    print(spreadsheet)
-
+    
     # Write to Excel
     wb = Workbook()
     ws = wb.active
     for row in spreadsheet:
         ws.append(row)
     wb.save('project_plan.xlsx')
+    return spreadsheet
 
 def write_document(document, doctype, write_html=True):
     # Save Charter
